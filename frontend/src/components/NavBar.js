@@ -15,7 +15,7 @@ export default function NavBar() {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark" style={{backgroundColor: "green"}}>
-        <a className="navbar-brand">
+        <a className="navbar-brand" style={{fontSize: "30px"}}>
           Natura
         </a>
         <button
@@ -33,7 +33,7 @@ export default function NavBar() {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item active">
-              <Link to="/"> <a className="nav-link">
+              <Link to="/"> <a className="nav-link" style={{color: "white"}}>
                 <b>Home</b> <span className="sr-only">(current)</span>
               </a></Link>
             </li>
@@ -46,11 +46,12 @@ export default function NavBar() {
                 data-toggle="dropdown"
                 aria-haspopup="true"
                 aria-expanded="false"
+                style={{color: "white"}}
               >
                 All Products
               </a>
               <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <Link to="/allCreams"> <a className="dropdown-item">
+                <Link to="/allCreamsView"> <a className="dropdown-item">
                   Creams
                 </a></Link>
                 <a className="dropdown-item">
@@ -62,14 +63,19 @@ export default function NavBar() {
                 <a className="dropdown-item">
                   Herbal Soap
                 </a>
+                <a className="dropdown-item">
+                  Oils
+                </a>
               </div>
             </li>
+            <Link to="/viewFeedback"><a style={{color: "white"}}>Feedbacks</a></Link>
           </ul>
+          
           {/* <Link to="/login"><button type="button" class="btn btn-info" style={{marginRight: "10px"}}>Login</button></Link>
           <form className="form-inline my-2 my-lg-0"> 
           </form> */}
           <nav>
-          { user && (
+          {user && (
           <div>
             <span>{user.user.email}</span>
             <Link to="/"><button className="btn btn-light" style={{marginLeft: "10px"}} onClick={handleClick}> Logout</button></Link> 

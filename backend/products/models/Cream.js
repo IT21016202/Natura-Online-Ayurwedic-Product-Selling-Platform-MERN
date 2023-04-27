@@ -1,6 +1,7 @@
 const mongoose  = require('mongoose');
 const Schema = mongoose.Schema;
 
+//Schema for new cream
 const creamSchema = new Schema({
     name: {type: String, required: true},
     description: {type: String},
@@ -12,10 +13,7 @@ const creamSchema = new Schema({
     weight: {type: Number, required: true},
     sellerID: {type: String},
 
-    //imageName: {type: String},
-    //imageData: {type: Buffer},
-    //contentType: {type: String}
 });
 
 const Cream = mongoose.model("Cream", creamSchema);
-module.exports = Cream;
+module.exports = Cream; //expoer schema

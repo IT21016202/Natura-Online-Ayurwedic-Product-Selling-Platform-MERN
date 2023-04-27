@@ -2,6 +2,7 @@ import React from "react";
 import Banner1 from "../images/Banner-1.jpg";
 import Banner2 from "../images/Banner-2.jpg";
 import Banner3 from "../images/Banner-3.png";
+import HomeBottom from "../components/HomeBottom";
 
 export default function Home() {
   return (
@@ -50,6 +51,11 @@ export default function Home() {
           <span class="sr-only">Next</span>
         </a>
       </div>
+      <br></br>
+      <div style={{width: "100%", marginLeft: "auto", marginRight: "auto", textAlign: "center"}}>
+      <HomeBottom/>
+      </div>
     </div>
+      
   );
 }

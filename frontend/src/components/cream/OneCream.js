@@ -58,9 +58,9 @@ export default function OneCream() {
         </tr>
        </table>
 
-       <div style={{display: "inline" ,float: 'left', marginLeft: "10%", marginTop: "10%"}}>
+       {/* <div style={{display: "inline" ,float: 'left', marginLeft: "10%", marginTop: "10%"}}>
         <img src='https://picsum.photos/200' style={{width: "350px", borderRadius: "10px"}}/>
-       </div>
+       </div> */}
     </div>
   )
 }

@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Login from "./pages/login";
 import Signup from "./pages/signup";
 import NavBar from './components/NavBar';
+
 import BuyerDashboard from "./components/buyer/BuyerDashboard";
 import SellerDashboard from './components/seller/SellerDashboard';
 import AdminDashboard from './components/admin/AdminDashboard';
@@ -17,6 +18,10 @@ import AddNewCream from './components/cream/AddNewCream';
 import AllCreams from './components/cream/AllCreams';
 import OneCream from './components/cream/OneCream';
 import EditCream from './components/cream/EditCream';
+import AllCreamsView from "./components/cream/AllCreamsView";
+
+import ViewFeedbacks from "./components/feedback/viewFeedbacks";
+import AddNewFeedback from "./components/feedback/AddNewFeedback";
 
 
 function App() {
@@ -51,11 +56,14 @@ function App() {
             <Route path="/seller" element={<SellerDashboard/>} />
             <Route path="/admin" element={<AdminDashboard/>} />
             <Route path="/allCreams" element={<AllCreams/>} />
+            <Route path="/allCreamsView" element={<AllCreamsView/>} />
             <Route path="/addNewCream" element={<AddNewCream/>} />
             <Route path="/editCream/:id" element={<EditCream/>} />
             <Route path="/oneCream/:id" element={<OneCream/>} />
             <Route path="/orders" element={<Orders/>} />
             <Route path="/buyerRequest" element={<BuyerReqests/>} />
+            <Route path="/viewFeedback" element={<ViewFeedbacks/>} />
+            <Route path="/addFeedback" element={<AddNewFeedback/>} />
            </Routes>
         </div>
       </BrowserRouter>
