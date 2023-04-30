@@ -3,7 +3,7 @@ const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors  = require('cors');
-require("dotenv").config();
+require("dotenv").config(); 
 
 const port = process.env.PORT || 8080
 const mongo_url = process.env.MONGO_URL;
@@ -18,10 +18,8 @@ connection.once("open", () => {
   console.log("Database Connection Successful");
 })
 
-
 const creamRouter = require("./routes/CreamRoute");
 app.use("/cream", creamRouter);
-
 
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`)

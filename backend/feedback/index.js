@@ -28,66 +28,6 @@ app.use((req, res, next) => {
 //routes
 app.use("/api/feedback", feedbackRoutes);
 
-//stripe payment
-// app.post("/api/create-payment-intent", async (req, res) => {
-//   const { paymentMethodId, amount } = req.body;
-//   console.log("Received payment amount:", amount);
-
-//   try {
-//     const paymentIntent = await stripe.paymentIntents.create({
-//       payment_method: paymentMethodId,
-//       amount,
-//       currency: "usd",
-//       confirmation_method: "manual",
-//       confirm: true,
-//     });
-
-//     res.send({ clientSecret: paymentIntent.client_secret });
-//   } catch (error) {
-//     console.log(error);
-//     console.error("Error creating PaymentIntent:", error.message);
-//     res.status(500).send({ error: "Error creating payment intent." });
-//   }
-// });
-
-// const calculateOrderAmount = (items) => {
-//   // Replace this constant with a calculation of the order's amount
-//   // Calculate the order total on the server to prevent
-//   // people from directly manipulating the amount on the client
-//   return 1400;
-// };
-
-// app.post("/api/create-payment-intent", async (req, res) => {
-//   const { items } = req.body;
-
-//   // Create a PaymentIntent with the order amount and currency
-//   const paymentIntent = await stripe.paymentIntents.create({
-//     amount: calculateOrderAmount(items),
-//     currency: "usd",
-//     //receipt_email: "spbamisha@gmail.com",
-//     automatic_payment_methods: {
-//       enabled: true,
-//     },
-//   });
-
-//   res.send({
-//     clientSecret: paymentIntent.client_secret,
-//   });
-// });
-
-// //connect to DB
-// mongoose.set("strictQuery", false);
-// mongoose
-//   .connect(process.env.MONGO_URI)
-//   .then(() => {
-//     //listen for requests
-//     app.listen(process.env.PORT, () => {
-//       console.log("Connected to DB & listening on port", process.env.PORT);
-//     });
-//   })
-//   .catch((error) => {
-//     console.log(error);
-//   });
 
 //connect to DB
 mongoose.set("strictQuery", false);

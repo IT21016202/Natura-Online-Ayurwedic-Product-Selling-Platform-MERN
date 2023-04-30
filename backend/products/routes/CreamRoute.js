@@ -52,7 +52,7 @@ router.route("/updateCream/:id").put(async (req, res) => {
     .then(() => {
         res.status(200).send("Cream Updated");
     }).catch((err) => {
-        console.log(err);
+        console.log(err);   
         res.send(500).send("Update Failed");
     })
 });
