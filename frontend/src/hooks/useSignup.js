@@ -42,9 +42,9 @@ export const useSignup = () =>{
             else if(json.user.type === 'seller'){
                 navigate('/seller');
             }
-            // else if(json.user.type === 'admin'){
-            //     navigate('/admin');
-            // }        
+            else if(json.user.type === 'admin'){
+                navigate('/admin');
+            }        
         }
 
         console.log(json)

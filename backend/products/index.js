@@ -11,6 +11,11 @@ const mongo_url = process.env.MONGO_URL;
 app.use(cors());
 app.use(bodyParser.json());
 
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  next();
+});
+
 mongoose.connect(mongo_url, {});
 const connection = mongoose.connection; 
 
@@ -20,6 +25,12 @@ connection.once("open", () => {
 
 const creamRouter = require("./routes/CreamRoute");
 app.use("/cream", creamRouter);
+
+const cartRouter = require("./routes/CartRoute");
+app.use("/cart", cartRouter);
+
+const buyerReqRouter = require("./routes/BuyerReqRoute");
+app.use("/buyerReq", buyerReqRouter);
 
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`)

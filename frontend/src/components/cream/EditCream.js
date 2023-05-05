@@ -37,7 +37,6 @@ export default function EditCream() {
 
     axios.put(`http://localhost:8002/cream/updateCream/${id}`, updated)
     .then((res)=>{
-        console.log(res);
         window.alert("Cream Updated !")
         navigate('/allCreams')
     })

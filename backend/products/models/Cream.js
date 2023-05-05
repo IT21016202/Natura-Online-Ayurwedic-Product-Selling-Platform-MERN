@@ -11,8 +11,8 @@ const creamSchema = new Schema({
     mfd: {type: Date, required: true},
     exp: {type: Date, required: true},
     weight: {type: Number, required: true},
-    sellerID: {type: String},
-
+    sellerID: {type: String, required: true},
+    imageLink: {type: String}
 });
 
 const Cream = mongoose.model("Cream", creamSchema);

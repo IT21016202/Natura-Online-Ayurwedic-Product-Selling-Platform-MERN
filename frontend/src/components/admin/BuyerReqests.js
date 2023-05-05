@@ -1,10 +1,20 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 export default function BuyerReqests() {
+  const [buyerReq, setBuyerReq] = useState([]);
+  const [updated, setUpdated] = useState(false);
 
   useEffect(()=>{
-    //get buyer reqests
-  }, []);
+    axios.get('http://localhost:8002/buyerReq/')
+    .then((res)=>{
+      setBuyerReq(res.data);
+    })
+    .catch((err)=>{
+      console.log(err);
+    })
+    setUpdated(false);
+  }, [updated]);
 
   function approveBuyReq(){
 

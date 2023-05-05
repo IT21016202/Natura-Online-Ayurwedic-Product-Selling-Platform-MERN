@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useAuthContext } from "../../hooks/useAuthContext";
 
 export default function AddNewCream() {
   const navigate = useNavigate();
+  const { user } = useAuthContext();
+  //console.log(user);
      
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -13,16 +16,11 @@ export default function AddNewCream() {
   const [mfd, setMfd] = useState("");
   const [exp, setExp] = useState("");
   const [weight, setWeight] = useState(0);
-  const [sellerID, setSellerID] = useState(0);
-  const [file, setSelectedFile] = useState(null);
+  const [sellerID, setSellerID] = useState(user.user._id);
+  const [imageLink, setImageLink] = useState("");
 
   const handleDropdown = (event) => {
     setType(event.target.value);
-  };
-
-  const handleFileInput = (e) => {
-    e.preventDefault();
-    setSelectedFile(e.target.files[0]);
   };
 
   function sendCreamData(event) {
@@ -38,14 +36,12 @@ export default function AddNewCream() {
       exp,
       weight,
       sellerID,
-      file
+      imageLink
     };
 
     axios
       .post("http://localhost:8002/cream/addCream/", newCream)
       .then((res) => {
-        console.log(res);
-        console.log(newCream);
         window.alert("New Cream Is Added !")
         navigate('/allCreams')
       })
@@ -60,9 +56,12 @@ export default function AddNewCream() {
         <br />
         <div className="row md-6">
           <div className="col-md-6">
-            <input type="file"
+          <label className="labels" style={{ float: "left" }}>
+              Enter Image URL :
+            </label>
+            <input type="text"
               onChange={(event) => {
-                setSelectedFile(event.target.files)
+                setImageLink(event.target.value)
               }} />
           </div>
         </div>

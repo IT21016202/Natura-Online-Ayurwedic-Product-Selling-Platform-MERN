@@ -1,25 +1,18 @@
 // import axios from "axios";
 // import React, { useEffect, useState } from "react";
 // import { Link } from 'react-router-dom';
+// import { useAuthContext } from "../../hooks/useAuthContext";
 // //import ImageView from "../ImageView";
 
-// export default function AllCreamsView() {
+// export default function AllCreamsBuy() {
 //     const [cream, setCream] = useState([]);
 //     const [deleted, setDeleted] = useState(false);
+//     const user = JSON.parse(localStorage.getItem('user'));
 
-//     // function deleteCream(id){
-//     //   const ans = window.confirm("Are you sure ?");
-//     //   if(ans){
-//     //     axios.delete(`http://localhost:8002/cream/deleteCream/${id}`)
-//     //     .then((res)=>{
-//     //       window.alert("Cream Deleted !")
-//     //       setDeleted(true);
-//     //     })
-//     //     .catch((err)=>{
-//     //       console.log(err);
-//     //     })
-//     //   }
-//     // };
+//     function addToCart(data){
+//       //console.log(user);
+//       //console.log(data);   
+//     };
 
 //     useEffect(()=>{
 //         function getAllCreams(){
@@ -52,6 +45,7 @@
 //               <h5 className="card-title">{creamData.name}</h5>
 //               <p className="card-text">{creamData.description}</p>
 //               <Link to={`/oneCream/${creamData._id}`}><button className="btn btn-info btn-sm">See Details</button> </Link> 
+//               <button onClick={() => addToCart(creamData)} style={{marginLeft: "5px"}} className="btn btn-warning btn-sm">Add To Cart</button>
 //             </div>
 //           </div>
 //         ))}

@@ -6,11 +6,11 @@ const upload = multer();
 //Add new cream
 router.route("/addCream").post(upload.single('image'), async(req, res) => {
     //Desctucture the request body and get cream details
-    const {name, description, price, quantity, type, mfd, exp, weight, sellerID, file} = req.body;
+    const {name, description, price, quantity, type, mfd, exp, weight, sellerID, imageLink} = req.body;
 
     try{
         //Create a cream details object and initilize above variables
-        let cream = new Cream({name, description, price, quantity, type, mfd, exp, weight, sellerID});
+        let cream = new Cream({name, description, price, quantity, type, mfd, exp, weight, sellerID, imageLink});
         const result = await cream.save();
         //console.log(cream);
         if(result)
@@ -46,8 +46,8 @@ router.route('/getOne/:id').get((req, res) => {
 //Update cream
 router.route("/updateCream/:id").put(async (req, res) => {
     const id = req.params.id;
-    const {name, description, price, quantity, type, mfd, exp, weight, image, sellerID} = req.body;
-    let updatedCream = {name, description, price, quantity, type, mfd, exp, weight, image, sellerID};
+    const {name, description, price, quantity, type, mfd, exp, weight, sellerID, imageLink} = req.body;
+    let updatedCream = {name, description, price, quantity, type, mfd, exp, weight, sellerID, imageLink};
     await Cream.findByIdAndUpdate(id, updatedCream) 
     .then(() => {
         res.status(200).send("Cream Updated");

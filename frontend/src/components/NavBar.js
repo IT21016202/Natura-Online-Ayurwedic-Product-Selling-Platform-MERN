@@ -8,6 +8,7 @@ export default function NavBar() {
   const {logout} = useLogout()
 
   const {user} = useAuthContext()
+  //console.log("Nav ", user);
 
   const handleClick = ()=>{
     logout()
@@ -50,6 +51,7 @@ export default function NavBar() {
               >
                 All Products
               </a>
+
               <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <Link to="/allCreamsView"> <a className="dropdown-item">
                   Creams
@@ -68,9 +70,15 @@ export default function NavBar() {
                 </a>
               </div>
             </li>
-            <Link to="/viewFeedback"><a style={{color: "white"}}>Feedbacks</a></Link>
+            <li className="nav-item">
+              <Link to="/viewFeedback"><a style={{color: "white"}}>Feedbacks</a></Link>
+            </li>  
           </ul>
-          
+          <nav style={{marginRight: "20px"}}>
+          <Link to="/cartNew"><a className="btn btn-primary" style={{color: "white"}}>My Cart</a></Link>
+          <Link to="/buyer"><a class="btn btn-info" style={{color: "white"}}>My Profile</a></Link>
+          </nav>
+                 
           {/* <Link to="/login"><button type="button" class="btn btn-info" style={{marginRight: "10px"}}>Login</button></Link>
           <form className="form-inline my-2 my-lg-0"> 
           </form> */}

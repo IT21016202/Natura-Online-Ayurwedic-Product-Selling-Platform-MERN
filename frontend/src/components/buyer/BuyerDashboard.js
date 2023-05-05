@@ -4,9 +4,7 @@ import { useAuthContext } from "../../hooks/useAuthContext";
 
 
 export default function BuyerDashboard() {
-
-  const {user} = useAuthContext()
-  console.log(user);
+  //console.log(user);
 
   return (
     <div>
@@ -19,7 +17,7 @@ export default function BuyerDashboard() {
             <h4>Personal Details</h4>
             <br></br>
             <div style={{textAlign: "left"}}>
-                Name : <input defaultValue={user.user.firstname} style={{width: "100%"}}></input> <br></br><br></br>
+                Name : <input style={{width: "100%"}}></input> <br></br><br></br>
                 Email : <input style={{width: "100%"}}></input> <br></br><br></br>
                 Mobile : <input style={{width: "100%"}}></input> <br></br><br></br>
                 Birthdate : <input style={{width: "100%"}}></input> <br></br> <br></br>
@@ -32,7 +30,7 @@ export default function BuyerDashboard() {
           <h4>Management</h4>
             <br></br>
             <Link to={'/orders'}><button type="button" className="btn btn-info" style={{margin: "5px", width: "100%", height: "50px"}}>View All Orders</button></Link> 
-            <button type="button" className="btn btn-info" style={{margin: "5px", width: "100%", height: "50px"}}>View Products</button><br></br>
+            <Link to={'/allCreams'}> <button type="button" className="btn btn-info" style={{margin: "5px", width: "100%", height: "50px"}}>View Products</button></Link><br></br>
             {/* <button type="button" className="btn btn-info" style={{margin: "5px", width: "100%", height: "50px"}}></button> */}
             <button type="button" className="btn btn-info" style={{margin: "5px", width: "100%", height: "50px"}}>View Reports</button>
           </div>
