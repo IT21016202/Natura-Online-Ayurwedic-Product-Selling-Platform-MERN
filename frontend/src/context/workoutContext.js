@@ -3,7 +3,6 @@ import { createContext } from "react";
 
 export const WorkoutContext = createContext();
 
-
 export const workoutsReducer = (state,action)=>{
     switch(action.type){
         case 'SET_WORKOUTS':return{

@@ -129,11 +129,7 @@ export default function AddNewCream() {
             <label className="labels" style={{ float: "left" }}>
               Enter Type :
             </label>
-            <select
-              value={type}
-              onChange={handleDropdown}
-              style={{ width: "100%", padding: "5px", borderRadius: "5px" }}
-            >
+            <select>
               <option value="">Select and option</option>
               <option value="Face Cream">Face Cream</option>
               <option value="Foot Cream">Foot Cream</option>

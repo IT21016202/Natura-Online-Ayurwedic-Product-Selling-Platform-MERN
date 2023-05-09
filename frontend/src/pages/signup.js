@@ -65,7 +65,6 @@ const signup = () => {
       />
       <label htmlFor="">Select Type </label>
       <select
-        value={type}
         onChange={handleDropdown}
         style={{ width: "100%", padding: "5px", borderRadius: "5px" ,marginBottom:"5px"}}
       >
