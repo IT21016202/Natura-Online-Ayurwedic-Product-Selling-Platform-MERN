@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, RouterProvider } from "react-router-dom";
 import { useAuthContext } from "./hooks/useAuthContext";
 
 import Home from "./pages/Home";
@@ -17,8 +17,6 @@ import AddNewCream from './components/cream/AddNewCream';
 import AllCreams from './components/cream/AllCreams';
 import OneCream from './components/cream/OneCream';
 import EditCream from './components/cream/EditCream';
-import AllCreamsView from "./components/cream/AllCreamsView";
-import AllCreamsBuy from "./components/cream/AllCreamsBuy";
 
 import ViewFeedbacks from "./components/feedback/viewFeedbacks";
 import AddNewFeedback from "./components/feedback/AddNewFeedback";
@@ -30,18 +28,18 @@ import NotFound from "./components/payment/NotFound";
 import Cart from "./components/payment/Cart";
 
 import "react-toastify/dist/ReactToastify.css";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
 import CheckoutSuccess from "./components/payment/CheckoutSuccess";
-
 import CartNew from './components/payment2/CartNew';
+
+import NotAuthorized from "./pages/NotAuthorized";
 
 
 function App() {
   const { user } = useAuthContext();
+  const user1 = JSON.parse(localStorage.getItem('user'));
+  console.log(user1);
 
   // const dispatch = useDispatch();
-
   // useEffect(() => {
   //   dispatch(loadUser(null));
   // }, [dispatch]);
@@ -60,8 +58,8 @@ function App() {
             {/* <Route
               path="/login"
               element={!user ? <Login /> : <Navigate to="/" />}
-            /> */}
-            {/* <Route
+            />
+            <Route
               path="/signup"
               element={!user ? <Signup /> : <Navigate to="/" />}
             /> */}
@@ -73,16 +71,14 @@ function App() {
             <Route path='/home' element={<Home2/>}/>
             <Route path="/login" element={<Login/>} />
             <Route path="/signup" element={<Signup/>} />
-            <Route path="/buyer" element={<BuyerDashboard/>} />
-            <Route path="/seller" element={<SellerDashboard/>} />
-            <Route path="/admin" element={<AdminDashboard/>} />
+            <Route path="/buyer" element={user1 && user1.user.type == 'buyer' ? <BuyerDashboard/> : <NotAuthorized/>} />
+            <Route path="/seller" element={user1 && user1.user.type == 'seller' ? <SellerDashboard/> : <NotAuthorized/>} />
+            <Route path="/admin" element={user1 && user1.user.type == 'admin' ? <AdminDashboard/> : <NotAuthorized/>} />
 
             <Route path="/allCreams" element={<AllCreams/>} />
-            <Route path="/allCreamsView" element={<AllCreamsView/>} />  
             <Route path="/addNewCream" element={<AddNewCream/>} />
             <Route path="/editCream/:id" element={<EditCream/>} />
-            <Route path="/oneCream/:id" element={<OneCream/>} />
-            <Route path="/allCreamBuy" element={<AllCreamsBuy/>} />
+            <Route path="/oneCream/:id" element={<OneCream/>} />   
 
             <Route path="/orders" element={<Orders/>} />
             <Route path="/buyerRequest" element={<BuyerReqests/>} />

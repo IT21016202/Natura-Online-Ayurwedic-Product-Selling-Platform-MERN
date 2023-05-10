@@ -11,9 +11,9 @@ export default function AllCreams() {
     function deleteCream(id){
       const ans = window.confirm("Are you sure ?");
       if(ans){
-        axios.delete(`http://localhost:8002/cream/deleteCream/${id}`)
+        axios.delete(`http://localhost:8002/product/delete/${id}`)
         .then((res)=>{
-          window.alert("Cream Deleted !")
+          window.alert("Product Deleted !")
           setDeleted(true);
         })
         .catch((err)=>{
@@ -41,7 +41,7 @@ export default function AllCreams() {
 
     useEffect(()=>{
         function getAllCreams(){
-            axios.get("http://localhost:8002/cream/get")
+            axios.get("http://localhost:8002/product/get")
             .then((res) => {
                 setCream(res.data);
             })

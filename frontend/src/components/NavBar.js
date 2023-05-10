@@ -2,9 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useLogout } from "../hooks/useLogout";
 import { useAuthContext } from "../hooks/useAuthContext";
+import { useNavigate } from "react-router-dom";
 
 export default function NavBar() {
+  const navigate = useNavigate();
   
+  const user1 = JSON.parse(localStorage.getItem('user'));
   const {logout} = useLogout()
 
   const {user} = useAuthContext()
@@ -13,6 +16,18 @@ export default function NavBar() {
   const handleClick = ()=>{
     logout()
   }
+
+  function goToProfile(){
+    if(user1.user.type == 'seller')
+      navigate('/seller');
+
+    else if(user1.user.type == 'buyer')
+      navigate('/buyer');
+
+    else if (user1.user.type == 'admin')
+      navigate('/admin');
+  }
+  
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark" style={{backgroundColor: "green"}}>
@@ -76,7 +91,7 @@ export default function NavBar() {
           </ul>
           <nav style={{marginRight: "20px"}}>
           <Link to="/cartNew"><a className="btn btn-primary" style={{color: "white"}}>My Cart</a></Link>
-          <Link to="/buyer"><a class="btn btn-info" style={{color: "white"}}>My Profile</a></Link>
+          <a onClick={goToProfile} class="btn btn-info" style={{color: "white"}}>My Profile</a>
           </nav>
                  
           {/* <Link to="/login"><button type="button" class="btn btn-info" style={{marginRight: "10px"}}>Login</button></Link>

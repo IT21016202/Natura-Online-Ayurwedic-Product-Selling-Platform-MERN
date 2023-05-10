@@ -23,8 +23,8 @@ connection.once("open", () => {
   console.log("Database Connection Successful");
 })
 
-const creamRouter = require("./routes/CreamRoute");
-app.use("/cream", creamRouter);
+const productRouter = require("./routes/ProductRoute");
+app.use("/product", productRouter);
 
 const cartRouter = require("./routes/CartRoute");
 app.use("/cart", cartRouter);
