@@ -17,6 +17,7 @@ export default function SellerProducts() {
         .catch((err)=>{
             console.log(err);
         })
+        setIsDeleted(false);
     }, [isDeleted]);
 
     function deleteProduct(id){

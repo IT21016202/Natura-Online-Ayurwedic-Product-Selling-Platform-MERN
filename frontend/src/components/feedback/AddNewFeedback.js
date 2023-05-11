@@ -31,7 +31,8 @@ export default function AddNewFeedback() {
     
   return (
     <div>
-        <h3>Add New Feedback</h3>
+        <br/>
+        <h3 style={{marginLeft: "2%"}}>Add New Feedback</h3>
         <hr/>
         <br/>
         
@@ -69,7 +70,7 @@ export default function AddNewFeedback() {
           </div>
         </div>
         
-        <div className="row md-6" style={{ marginTop: '10px', marginLeft: "1px"}}>
+        <div className="row md-6" style={{ marginTop: '20px', marginLeft: "1px"}}>
           <button
             style={{width: "80px"}}
             className="btn btn-success"

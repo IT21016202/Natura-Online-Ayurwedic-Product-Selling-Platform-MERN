@@ -1,5 +1,4 @@
 const router = require("express").Router();
-const { estimatedDocumentCount } = require("../models/Cart");
 const Product = require("../models/Product");
 
 //Add new product

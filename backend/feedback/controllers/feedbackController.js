@@ -94,10 +94,29 @@ const updatefeedbackDetail = async (req, res) => {
   res.status(200).json(feedbackDetail);
 };
 
+
+//Get user specific Feedback
+const getUserSpecificFeedbacks = async (req, res) => {
+  const {id} = req.params;
+
+  Feedback.find({userID : id})
+  .then((feedbacks)=>{
+    if(feedbacks)
+      res.status(200).json(feedbacks)
+    else  
+      res.status(400).send('No feedback found !')
+  })
+  .catch((err)=>{
+    res.status(500).send(err.message);
+    console.log(err);
+  })
+};
+
 module.exports = {
   getfeedbackDetails,
   getfeedbackDetail,
   createfeedbackDetail,
   deletefeedbackDetail,
   updatefeedbackDetail,
+  getUserSpecificFeedbacks
 };

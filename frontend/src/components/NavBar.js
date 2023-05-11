@@ -19,14 +19,20 @@ export default function NavBar() {
   }
 
   function goToProfile(){
-    if(user1.user.type == 'seller')
-      navigate('/seller');
+    if(user1){
+      if(user1.user.type == 'seller')
+        navigate('/seller');
 
-    else if(user1.user.type == 'buyer')
-      navigate('/buyer');
+      else if(user1.user.type == 'buyer')
+        navigate('/buyer');
 
-    else if (user1.user.type == 'admin')
-      navigate('/admin');
+      else if (user1.user.type == 'admin')
+        navigate('/admin');
+    }
+    else{
+      navigate('/login')
+    }
+    
   }
   
   return (

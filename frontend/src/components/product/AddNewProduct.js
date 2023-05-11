@@ -195,8 +195,8 @@ export default function AddNewProduct() {
               <option value="oil">Oil</option>
               <option value="soap">Soap</option>
               <option value="shampoo">Shampoo</option>
-              <option value="weight">Weight Gainers</option>
-              <option value="vitamins">Vitamins</option>
+              <option value="weight gainer">Weight Gainers</option>
+              <option value="vitamin">Vitamins</option>
             </select>
           </div>
           <div className="col-md-3">

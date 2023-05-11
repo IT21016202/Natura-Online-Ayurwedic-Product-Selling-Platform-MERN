@@ -71,7 +71,7 @@ export default function AllProducts() {
     <div>
         {product.map((productData) => (
             <div className="card" style={{display: "inline-flex", margin: "20px", maxWidth: "300px"}} key={productData._id}>
-            <div className="card-img-top"> 
+            <div className="card-img-top" style={{width: "300px", height: "200px", objectFit: "cover"}}> 
               <img src={productData.imageLink} style={{width: "300px"}}/>
             </div> 
             <div className="card-body">
@@ -79,10 +79,10 @@ export default function AllProducts() {
               {/* <p className="card-text">{productData.description}</p> */}
               <p className="card-text" style={{color: "darkGreen"}}>Rs : {productData.price}.00</p>
               <Link to={`/oneProduct/${productData._id}`}><button className="btn btn-info btn-sm">See Details</button> </Link> 
-              {(user.user.type == 'admin') && (<Link to={`/editProduct/${productData._id}`}><button className="btn btn-warning btn-sm">Edit</button></Link>)}
-              {(user.user.type == 'admin') && (<button style={{marginLeft: "5px"}} onClick={() => deleteProduct(productData._id)} className="btn btn-danger btn-sm">Delete</button>)}
-              {(user.user.type == 'buyer' && <button onClick={() => addToCart(productData)} className="btn btn-success btn-sm">Add To Cart</button>)}
-              {(user.user.type == 'buyer' && <button onClick={() => addToCart(productData)} className="btn btn-success btn-sm">Add Review</button>)}
+              {(user && user.user.type == 'admin') && (<Link to={`/editProduct/${productData._id}`}><button className="btn btn-warning btn-sm">Edit</button></Link>)}
+              {(user && user.user.type == 'admin') && (<button style={{marginLeft: "5px"}} onClick={() => deleteProduct(productData._id)} className="btn btn-danger btn-sm">Delete</button>)}
+              {((user && user.user.type == 'buyer') && <button onClick={() => addToCart(productData)} className="btn btn-success btn-sm">Add To Cart</button>)}
+              {((user && user.user.type == 'buyer') && <button className="btn btn-warning btn-sm" style={{marginTop: "5px"}}>Add Review</button>)}
             </div>
           </div>
         ))}

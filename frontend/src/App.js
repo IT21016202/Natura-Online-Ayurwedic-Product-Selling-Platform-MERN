@@ -19,9 +19,12 @@ import AllProducts from './components/product/AllProducts';
 import OneProduct from './components/product/OneProduct';
 import EditProduct from './components/product/EditProduct';
 import SellerProducts from "./components/product/SellerProducts";
+import OneCategory from "./components/product/OneCategory";
 
 import ViewFeedbacks from "./components/feedback/viewFeedbacks";
 import AddNewFeedback from "./components/feedback/AddNewFeedback";
+import MyFeedbacks from "./components/feedback/MyFeedbacks";
+import AddReview from "./components/feedback/AddReview";
 
 import { ToastContainer } from "react-toastify";
 
@@ -66,15 +69,18 @@ function App() {
               <Route path="/admin" element={user1 && user1.user.type == 'admin' ? <AdminDashboard/> : <NotAuthorized/>} />
 
               <Route path="/allProducts" element={<AllProducts/>} />
-              <Route path="/addProduct" element={<AddNewProduct/>} />
-              <Route path="/editProduct/:id" element={<EditProduct/>} />
+              <Route path="/addProduct" element={(user1 && user1.user.type == 'seller') || (user1 && user1.user.type == 'admin') ? <AddNewProduct/> : <NotAuthorized/>} />
+              <Route path="/editProduct/:id" element={(user1 && user1.user.type == 'seller') || (user1 && user1.user.type == 'admin') ? <EditProduct/> : <NotAuthorized/>} />
               <Route path="/oneProduct/:id" element={<OneProduct/>} />  
               <Route path="/sellerProducts" element={user1 && user1.user.type == 'seller' ? <SellerProducts/> : <NotAuthorized/>} /> 
-
+              <Route path="/oneCategory/:category" element={<OneCategory/>} />
+ 
               <Route path="/orders" element={<Orders/>} />
               <Route path="/buyerRequest" element={<BuyerReqests/>} />
               <Route path="/viewFeedback" element={<ViewFeedbacks/>} />
               <Route path="/addFeedback" element={<AddNewFeedback/>} />
+              <Route path="/myFeedbacks" element={<MyFeedbacks/>} />
+              <Route path="/addReview" element={<AddReview/>} />
 
               <Route path="/cart" element={<Cart />} />
               <Route path="/checkout-success" element={<CheckoutSuccess />} />
