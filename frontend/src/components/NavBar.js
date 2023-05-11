@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useLogout } from "../hooks/useLogout";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useNavigate } from "react-router-dom";
+import Logo from '../images/NaturaLogo.png'
 
 export default function NavBar() {
   const navigate = useNavigate();
@@ -31,9 +32,10 @@ export default function NavBar() {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark" style={{backgroundColor: "green"}}>
-        <a className="navbar-brand" style={{fontSize: "30px"}}>
+        <a className="navbar-brand" style={{fontSize: "35px", color: "lightyellow"}}>
           Natura
         </a>
+        <img src={Logo} style={{width: "50px", marginRight: "60px"}}/>
         <button
           className="navbar-toggler"
           type="button"
@@ -49,11 +51,11 @@ export default function NavBar() {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item active">
-              <Link to="/"> <a className="nav-link" style={{color: "white"}}>
-                <b>Home</b> <span className="sr-only">(current)</span>
+              <Link to="/"> <a className="nav-link" style={{color: "white", fontSize: "20px"}}>
+                Home <span className="sr-only">(current)</span>
               </a></Link>
             </li>
-            <li className="nav-item dropdown">
+            {/* <li className="nav-item dropdown">
               <a
                 className="nav-link dropdown-toggle"
                 href="#"
@@ -65,10 +67,10 @@ export default function NavBar() {
                 style={{color: "white"}}
               >
                 All Products
-              </a>
+              </a> */}
 
-              <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <Link to="/allCreamsView"> <a className="dropdown-item">
+              {/* <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                <Link to="/allProducts"> <a className="dropdown-item">
                   Creams
                 </a></Link>
                 <a className="dropdown-item">
@@ -83,15 +85,19 @@ export default function NavBar() {
                 <a className="dropdown-item">
                   Oils
                 </a>
-              </div>
-            </li>
-            <li className="nav-item">
-              <Link to="/viewFeedback"><a style={{color: "white"}}>Feedbacks</a></Link>
+              </div> 
+            </li>*/}
+            <li className="nav-item" style={{padding: '0', marginTop: "32px"}}>
+              <Link to="/viewFeedback"><a style={{color: "white", fontSize: "20px"}}>Feedbacks</a></Link>
             </li>  
           </ul>
           <nav style={{marginRight: "20px"}}>
-          <Link to="/cartNew"><a className="btn btn-primary" style={{color: "white"}}>My Cart</a></Link>
-          <a onClick={goToProfile} class="btn btn-info" style={{color: "white"}}>My Profile</a>
+            {(user1 && user1.user.type == 'buyer') && (
+              <div>
+                  <Link to="/cartNew"><a className="btn btn-success" style={{color: "white"}}>My Cart</a></Link>
+              </div>
+            )}
+            <a onClick={goToProfile} class="btn btn-success" style={{color: "white"}}>My Profile</a>
           </nav>
                  
           {/* <Link to="/login"><button type="button" class="btn btn-info" style={{marginRight: "10px"}}>Login</button></Link>
@@ -100,7 +106,7 @@ export default function NavBar() {
           <nav>
           {user && (
           <div>
-            <span>{user.user.email}</span>
+            <span style={{color: "lightcyan"}}>{user.user.email}</span>
             <Link to="/"><button className="btn btn-light" style={{marginLeft: "10px"}} onClick={handleClick}> Logout</button></Link> 
           </div>)}
           {!user && (

@@ -12,6 +12,10 @@ const feedbackSchema = new Schema(
       type: String,
       required: true,
     },
+    userID: {
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true }
 );

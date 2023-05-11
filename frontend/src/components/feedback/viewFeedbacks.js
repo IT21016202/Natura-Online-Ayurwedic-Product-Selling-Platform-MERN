@@ -19,8 +19,9 @@ export default function viewFeedbacks() {
 
   return (
     <div>
-        <h3 style={{display: "inline-block"}}>Feedbacks</h3>
-        <Link to="/addFeedback"><button className='btn btn-success' style={{flot: "left", display: "inline-block", float: "right"}}>Add A New Feedback </button></Link>
+        <br/>
+        <h3 style={{display: "inline-block", marginLeft: "20px"}}>Feedbacks</h3>
+        <Link to="/addFeedback"><button className='btn btn-warning' style={{flot: "left", display: "inline-block", float: "right"}}>Add A New Feedback </button></Link>
         <br></br>
         <br></br>
             {feedbacks.map((feedbackData)=>(  

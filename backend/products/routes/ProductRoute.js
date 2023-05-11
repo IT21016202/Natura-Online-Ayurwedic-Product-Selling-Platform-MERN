@@ -5,7 +5,8 @@ const Product = require("../models/Product");
 //Add new product
 router.route("/add").post(async(req, res) => {
     //Desctucture the request body and get product details
-    const {name, description, price, quantity, category, subCategory, mfd, exp, weight, sellerID, imageLink, createdAt} = req.body;
+    const {name, description, price, quantity, category, subCategory, mfd, exp, weight, sellerID, imageLink} = req.body;
+    const createdAt = new Date();
 
     try{
         //Create a product details object and initilize above variables
@@ -57,7 +58,7 @@ router.route('/getOne/:id').get((req, res) => {
 
 
 //Update product
-router.route("/update/:id").put(async (req, res) => {
+router.route("/update/:id").patch(async (req, res) => {
     const id = req.params.id;
     const {name, description, price, quantity, category, subCategory, mfd, exp, weight, sellerID, imageLink} = req.body;
     let updatedProduct = {name, description, price, quantity, category, subCategory, mfd, exp, weight, sellerID, imageLink};

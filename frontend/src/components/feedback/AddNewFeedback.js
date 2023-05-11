@@ -3,6 +3,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 export default function AddNewFeedback() {
+    const user1 = JSON.parse(localStorage.getItem('user'));
+    const userID = user1.user._id;
 
     const navigate = useNavigate();
     const [topic, setTopic] = useState("");
@@ -12,7 +14,7 @@ export default function AddNewFeedback() {
         event.preventDefault();
 
         const newFeedback = {
-            topic, description
+            topic, description, userID
         };
 
         axios.post("http://localhost:8001/api/feedback/add-feedback", newFeedback)
@@ -34,10 +36,10 @@ export default function AddNewFeedback() {
         <br/>
         
         <div>
-      <form style={{marginLeft: "30%", marginTop: "20px"}}>
+      <form style={{marginLeft: "20%", marginTop: "20px"}}>
 
-        <div className="row md-6">
-          <div className="col-md-6">
+        <div className="row md-8">
+          <div className="col-md-8">
             <label className="labels" style={{ float: "left" }}>
               Enter Feedback Topic :
             </label>
@@ -51,8 +53,8 @@ export default function AddNewFeedback() {
             />
           </div>
         </div>
-        <div className="row md-6">
-          <div className="col-md-6">
+        <div className="row md-8">
+          <div className="col-md-8">
             <label className="labels" style={{ float: "left" }}>
               Enter Description :
             </label>
