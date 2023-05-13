@@ -3,10 +3,11 @@ const BuyerReq = require("../models/BuyerReq");
 
 //Save Buyer Request
 router.route('/add').post(async(req, res)=>{
-    const {userID, productsList, createdAt, status, total} = req.body;
+    const {userID, productsList, createdAt, status, total, uName, uAddress, uProvince, uZipCode, uPhone, delivery} = req.body;
 
     try{
-        const newBuyerReq = new BuyerReq({userID, productsList, createdAt, status, total});
+        const newBuyerReq = new BuyerReq({userID, productsList, createdAt, status, total, uName, uAddress, uProvince, uZipCode, uPhone, delivery
+        });
         console.log(newBuyerReq);
         const result = await newBuyerReq.save();
         if(result)

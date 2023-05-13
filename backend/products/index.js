@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors  = require('cors');
 require("dotenv").config(); 
+const checkoutRouter = require("./routes/checkout");
 
 const port = process.env.PORT || 8080
 const mongo_url = process.env.MONGO_URL;
@@ -31,6 +32,9 @@ app.use("/cart", cartRouter);
 
 const buyerReqRouter = require("./routes/BuyerReqRoute");
 app.use("/buyerReq", buyerReqRouter);
+
+
+app.use("/checkout", checkoutRouter);
 
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`)

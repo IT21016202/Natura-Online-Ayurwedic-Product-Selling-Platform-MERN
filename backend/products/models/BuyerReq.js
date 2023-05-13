@@ -7,8 +7,12 @@ const buyerReqSchema = new Schema({
     createdAt: {type: Date}, 
     status: {type: String},
     total: {type: Number},
-    deliveryService: {type: String},
-    deliveryAddress: {type: String}
+    uName : {type: String},
+    uAddress: {type: String},
+    uProvince: {type: String},
+    uZipCode : {type: String},
+    uPhone : {type: String},
+    deliveryService: {type: String}
 });
 
 const BuyerReq = mongoose.model("BuyerReq", buyerReqSchema);
