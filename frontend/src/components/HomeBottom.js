@@ -9,7 +9,7 @@ import imageSix from "../images/siddhaleepa.jpeg";
 export default function HomeBottom() {
   return (
     <div>
-    <h3 style={{textAlign: 'left', color: "darkgreen", fontWeight: 'bold'}}>Top Selling Items ✨</h3>
+    <h3 style={{textAlign: 'left', color: "darkgreen", fontWeight: 'bold'}}>Top Selling Items ✨cd ba</h3>
     <hr/>
     <br/>
     <div style={{display:"inline-flex"}}>  
