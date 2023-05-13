@@ -27,7 +27,7 @@ export default function AllProducts() {
       const productID = item._id;
       const productName = item.name;
       const price = item.price;
-      const image = item.imageUrl;
+      const image = item.imageLink;
 
       const cartItem = {userID, productID, productName, price, image};
       
