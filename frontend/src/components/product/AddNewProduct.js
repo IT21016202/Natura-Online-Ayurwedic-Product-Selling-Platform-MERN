@@ -187,7 +187,7 @@ export default function AddNewProduct() {
               Select Category :
             </label> */}
             
-            <select
+            <select 
               className="form-control"
               onChange={handleDropdown}>
               <option value="">Select Cagetory</option>

@@ -89,7 +89,7 @@ export default function CartNew() {
           })
           .then((response) => {
             console.log(response);
-              navigate('/allProducts')
+              navigate('/success');
               
             // Process the payment success/failure logic here
           })

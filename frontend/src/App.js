@@ -33,8 +33,9 @@ import NotFound from "./components/payment/NotFound";
 import Cart from "./components/payment/Cart";
 
 import "react-toastify/dist/ReactToastify.css";
-import CheckoutSuccess from "./components/payment/CheckoutSuccess";
+//import CheckoutSuccess from "./components/payment/CheckoutSuccess";
 import CartNew from './components/payment2/CartNew';
+import ReservationSuccessful from "./components/payment2/ReservationSuccessful";
 
 import NotAuthorized from "./pages/NotAuthorized";
 
@@ -83,10 +84,10 @@ function App() {
               <Route path="/addReview" element={<AddReview/>} />
 
               <Route path="/cart" element={<Cart />} />
-              <Route path="/checkout-success" element={<CheckoutSuccess />} />
               <Route path="*" element={<NotFound />} />
-
               <Route path="/cartNew" element={<CartNew/>} />
+              <Route path="/success" element={<ReservationSuccessful/>} />
+
             </Routes>
           </div>
       </div>
