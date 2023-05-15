@@ -8,14 +8,18 @@ import imageSix from "../images/siddhaleepa.jpeg";
 
 export default function HomeBottom() {
   return (
-
-    <div style={{display:"inline-flex"}}>
+    <div>
+    <h3 style={{textAlign: 'left', color: "darkgreen", fontWeight: 'bold'}}>Top Selling Items ✨cd ba</h3>
+    <hr/>
+    <br/>
+    <div style={{display:"inline-flex"}}>  
     <div
       class="card"
       style={{
-        width: "15rem",
+        width: "12rem",
         border: "1px solid black",
-        borderRadius: "15px", marginRight:"15px"
+        borderRadius: "15px", marginRight:"15px",
+        height: "250px"
       }}
     >
       <center>
@@ -23,13 +27,13 @@ export default function HomeBottom() {
           class="card-img-top"
           src={imageOne}
           alt="giniraja"
-          style={{ width: "200px" }}
+          style={{ width: "130px" }}
         />
         <div class="card-body">
-          <h3 class="card-title" style={{ color: "Green" }}>
+          <h6 class="card-title" style={{ color: "Green" }}>
             Giniraja Herbal Oil
-          </h3>
-          <h2>Rs 5000.00</h2>
+          </h6>
+          <hp>Rs 5000.00</hp>
         </div>
       </center>
     </div>
@@ -39,10 +43,11 @@ export default function HomeBottom() {
     <div
       class="card"
       style={{
-        width: "15rem",
+        width: "12rem",
         border: "1px solid black",
         borderRadius: "15px",
-        marginRight:"15px"
+        marginRight:"15px",
+        height: "250px"
       }}
     >
       <center>
@@ -50,13 +55,13 @@ export default function HomeBottom() {
           class="card-img-top"
           src={imageTwo}
           alt="giniraja"
-          style={{ width: "200px" }}
+          style={{ width: "130px" }}
         />
         <div class="card-body">
-          <h3 class="card-title" style={{ color: "Green" }}>
+          <h6 class="card-title" style={{ color: "Green" }}>
             Banyan Body Cleanse
-          </h3>
-          <h2>Rs 2000.00</h2>
+          </h6>
+          <p>Rs 2000.00</p>
         </div>
       </center>
     </div>
@@ -65,10 +70,11 @@ export default function HomeBottom() {
     <div
       class="card"
       style={{
-        width: "15rem",
+        width: "12rem",
         border: "1px solid black",
         borderRadius: "15px",
-        marginRight:"15px"
+        marginRight:"15px",
+        height: "250px"
       }}
     >
       <center>
@@ -76,13 +82,13 @@ export default function HomeBottom() {
           class="card-img-top"
           src={imageThree}
           alt="giniraja"
-          style={{ width: "200px" }}
+          style={{ width: "130px" }}
         />
         <div class="card-body">
-          <h3 class="card-title" style={{ color: "Green" }}>
+          <h6 class="card-title" style={{ color: "Green" }}>
             Brahmi Memory Support
-          </h3>
-          <h2>Rs 2500.00</h2>
+          </h6>
+          <p>Rs 2500.00</p>
         </div>
       </center>
     </div>
@@ -91,10 +97,11 @@ export default function HomeBottom() {
     <div
       class="card"
       style={{
-        width: "15rem",
+        width: "12rem",
         border: "1px solid black",
         borderRadius: "15px",
-        marginRight:"15px"
+        marginRight:"15px",
+        height: "250px"
       }}
     >
       <center>
@@ -102,13 +109,13 @@ export default function HomeBottom() {
           class="card-img-top"
           src={imageFour}
           alt="giniraja"
-          style={{ width: "200px" }}
+          style={{ width: "130px" }}
         />
         <div class="card-body">
-          <h3 class="card-title" style={{ color: "Green" }}>
+          <h6 class="card-title" style={{ color: "Green" }}>
             Disna FacePack
-          </h3>
-          <h2>Rs 1500.00</h2>
+          </h6>
+          <p>Rs 1500.00</p>
         </div>
       </center>
     </div>
@@ -118,10 +125,11 @@ export default function HomeBottom() {
     <div
       class="card"
       style={{
-        width: "15rem",
+        width: "12rem",
         border: "1px solid black",
         borderRadius: "15px",
-        marginRight:"15px"
+        marginRight:"15px",
+        height: "250px"
       }}
     >
       <center>
@@ -129,17 +137,17 @@ export default function HomeBottom() {
           class="card-img-top"
           src={imageFive}
           alt="giniraja"
-          style={{ width: "200px" }}
+          style={{ width: "130px" }}
         />
         <div class="card-body">
-          <h3 class="card-title" style={{ color: "Green" }}>
+          <h6 class="card-title" style={{ color: "Green" }}>
             Brahmi Woman's Support
-          </h3>
-          <h2>Rs 2000.00</h2>
+          </h6>
+          <p>Rs 2000.00</p>
         </div>
       </center>
     </div>
-    </div>
-
-  );
+  </div>
+  </div>
+  );
 }

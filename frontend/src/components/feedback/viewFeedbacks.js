@@ -19,8 +19,10 @@ export default function viewFeedbacks() {
 
   return (
     <div>
-        <h3 style={{display: "inline-block"}}>Feedbacks</h3>
-        <Link to="/addFeedback"><button className='btn btn-success' style={{flot: "left", display: "inline-block", float: "right"}}>Add A New Feedback </button></Link>
+        <br/>
+        <h3 style={{display: "inline-block", marginLeft: "20px"}}>All Feedbacks</h3>
+        <Link to="/addFeedback"><button className='btn btn-warning' style={{flot: "left", display: "inline-block", float: "right"}}>Add A New Feedback </button></Link>
+        <Link to="/myFeedbacks"><button className='btn btn-success' style={{flot: "left", display: "inline-block", float: "right", marginRight: "10px"}}>My Feedbacks </button></Link>
         <br></br>
         <br></br>
             {feedbacks.map((feedbackData)=>(  
@@ -33,6 +35,11 @@ export default function viewFeedbacks() {
                     </table>  
                 </div>
             ))}
+            {feedbacks == '' && (
+                <div style={{textAlign: "center", marginTop: "200px"}}>
+                    <h4>Currently No Feedbacks are Avaliable</h4>
+                </div>
+            )}
     </div>
   )
 }

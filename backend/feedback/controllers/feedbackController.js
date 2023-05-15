@@ -27,7 +27,7 @@ const getfeedbackDetail = async (req, res) => {
 
 //create a new feedback
 const createfeedbackDetail = async (req, res) => {
-  const { topic, description } = req.body;
+  const { topic, description, userID } = req.body;
 
   let emptyFields = [];
 
@@ -37,6 +37,9 @@ const createfeedbackDetail = async (req, res) => {
   if (!description) {
     emptyFields.push("description");
   }
+  if (!userID) {
+    emptyFields.push("userID");
+  }
 
   if (emptyFields.length > 0) {
     return res
@@ -45,7 +48,7 @@ const createfeedbackDetail = async (req, res) => {
   }
 
   try {
-    const feedbackDetail = await Feedback.create({ topic, description });
+    const feedbackDetail = await Feedback.create({ topic, description, userID });
     res.status(200).json(feedbackDetail);
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -91,10 +94,29 @@ const updatefeedbackDetail = async (req, res) => {
   res.status(200).json(feedbackDetail);
 };
 
+
+//Get user specific Feedback
+const getUserSpecificFeedbacks = async (req, res) => {
+  const {id} = req.params;
+
+  Feedback.find({userID : id})
+  .then((feedbacks)=>{
+    if(feedbacks)
+      res.status(200).json(feedbacks)
+    else  
+      res.status(400).send('No feedback found !')
+  })
+  .catch((err)=>{
+    res.status(500).send(err.message);
+    console.log(err);
+  })
+};
+
 module.exports = {
   getfeedbackDetails,
   getfeedbackDetail,
   createfeedbackDetail,
   deletefeedbackDetail,
   updatefeedbackDetail,
+  getUserSpecificFeedbacks
 };
